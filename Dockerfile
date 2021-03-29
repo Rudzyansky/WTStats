@@ -1,7 +1,8 @@
 FROM archlinux:base
 
 RUN ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-RUN pacman -Sy python-pip firefox geckodriver --noconfirm
+
+RUN pacman -Syu --noconfirm python-pip firefox geckodriver
 
 COPY requirements.txt /tmp/
 RUN pip install --no-cache-dir -r /tmp/requirements.txt

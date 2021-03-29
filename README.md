@@ -2,8 +2,8 @@
 
 ## Build Container
 ```sh
-docker build -t falseteam/wtstats .
-docker run --name wtstats-instance -v PATH/TO/FOLDER:/opt/wtstats/data falseteam/wtstats
+docker build -t wtstats .
+docker run --name wtstats-instance -v PATH/TO/FOLDER:/opt/wtstats/data wtstats
 ```
 
 ## Configuring

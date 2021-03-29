@@ -1,9 +1,9 @@
 # WTStats
 
-## Build Container
+## Installation
 ```sh
-docker build -t wtstats .
-docker run --name wtstats-instance -v PATH/TO/FOLDER:/opt/wtstats/data wtstats
+docker pull rudzyansky/wtstats:latest
+docker run --name wtstats-instance -v PATH/TO/FOLDER:/opt/wtstats/data rudzyansky/wtstats
 ```
 
 ## Configuring
@@ -16,9 +16,8 @@ Telegram|token|Telegram Bot Token
 Telegram|chat_id|Telegram Chat ID
 
 ## Systemd
-All configs there: `/etc/systemd/system`
 
-### wtstats.service
+### `/etc/systemd/system/wtstats.service`
 ```editorconfig
 [Unit]
 Description=Update WTStats
@@ -28,7 +27,7 @@ Type=oneshot
 ExecStart=docker start -a wtstats-instance
 ```
 
-### wtstats.timer
+### `/etc/systemd/system/wtstats.timer`
 ```editorconfig
 [Unit]
 Description=Minutely Update WTStats
